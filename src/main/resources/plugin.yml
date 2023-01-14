@@ -1,0 +1,4 @@
+name: WorldGeneratorExtension
+main: worldgeneratorextension.Loader
+version: "${pom.version}"
+api: ["9.9.9"]
