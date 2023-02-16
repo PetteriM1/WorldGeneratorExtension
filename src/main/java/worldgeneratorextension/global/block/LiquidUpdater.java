@@ -1,5 +1,6 @@
 package worldgeneratorextension.global.block;
 
+import cn.nukkit.Server;
 import cn.nukkit.block.Block;
 import cn.nukkit.level.ChunkManager;
 import cn.nukkit.math.BlockVector3;
@@ -7,10 +8,15 @@ import cn.nukkit.math.BlockVector3;
 public final class LiquidUpdater {
 
     public static void lavaSpread(ChunkManager level, BlockVector3 vec) {
-        lavaSpread(level, vec.x, vec.y, vec.z);
+        lavaSpread(level, vec.x, vec.y, vec.z, 0);
     }
 
-    public static void lavaSpread(ChunkManager level, int x, int y, int z) {
+    private static void lavaSpread(ChunkManager level, int x, int y, int z, int counter) {
+        if (counter > 200) {
+            Server.getInstance().getLogger().debug("LiquidUpdater#lavaSpread: too many iterations");
+            return;
+        }
+
         if (level.getChunk(x >> 4, z >> 4) == null) {
             return;
         }
@@ -49,7 +55,7 @@ public final class LiquidUpdater {
                     level.setBlockAt(x, y, z, 0);
                 } else {
                     level.setBlockAt(x, y, z, Block.LAVA, decay);
-                    lavaSpread(level, x, y, z);
+                    lavaSpread(level, x, y, z, ++counter);
                     return;
                 }
             }
@@ -57,9 +63,9 @@ public final class LiquidUpdater {
 
         if (canFlowInto(level, x, y - 1, z)) {
             if (decay >= 8) {
-                flowIntoBlock(level, x, y - 1, z, decay);
+                flowIntoBlock(level, x, y - 1, z, decay, ++counter);
             } else {
-                flowIntoBlock(level, x, y - 1, z, decay | 0x08);
+                flowIntoBlock(level, x, y - 1, z, decay | 0x08, ++counter);
             }
         } else if (decay >= 0 && (decay == 0 || !canFlowInto(level, x, y - 1, z))) {
             boolean[] flags = getOptimalFlowDirections(level, x, y, z);
@@ -74,16 +80,16 @@ public final class LiquidUpdater {
             }
 
             if (flags[0]) {
-                flowIntoBlock(level, x - 1, y, z, l);
+                flowIntoBlock(level, x - 1, y, z, l, ++counter);
             }
             if (flags[1]) {
-                flowIntoBlock(level, x + 1, y, z, l);
+                flowIntoBlock(level, x + 1, y, z, l, ++counter);
             }
             if (flags[2]) {
-                flowIntoBlock(level, x, y, z - 1, l);
+                flowIntoBlock(level, x, y, z - 1, l, ++counter);
             }
             if (flags[3]) {
-                flowIntoBlock(level, x, y, z + 1, l);
+                flowIntoBlock(level, x, y, z + 1, l, ++counter);
             }
         }
     }
@@ -95,10 +101,10 @@ public final class LiquidUpdater {
         return -1;
     }
 
-    private static void flowIntoBlock(ChunkManager level, int x, int y, int z, int newFlowDecay) {
+    private static void flowIntoBlock(ChunkManager level, int x, int y, int z, int newFlowDecay, int counter) {
         if (level.getBlockIdAt(x, y, z) == Block.AIR) {
             level.setBlockAt(x, y, z, Block.LAVA, newFlowDecay);
-            lavaSpread(level, x, y, z);
+            lavaSpread(level, x, y, z, ++counter);
         }
     }
 
