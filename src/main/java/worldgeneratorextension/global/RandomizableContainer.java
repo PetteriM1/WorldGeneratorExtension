@@ -6,12 +6,12 @@ import cn.nukkit.math.NukkitRandom;
 import cn.nukkit.nbt.NBTIO;
 import cn.nukkit.nbt.tag.CompoundTag;
 import cn.nukkit.nbt.tag.ListTag;
+import cn.nukkit.utils.Utils;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomizableContainer {
 
@@ -36,7 +36,11 @@ public class RandomizableContainer {
                         int index = random.nextBoundedInt(tags.length);
                         Item item = Item.get(entry.getId(), entry.getMeta(), random.nextRange(entry.getMinCount(), entry.getMaxCount()));
                         if (item.getId() == Item.ENCHANT_BOOK) {
-                            item.addEnchantment(Enchantment.getEnchantment(ThreadLocalRandom.current().nextInt(37)));
+                            Enchantment enchantment = Enchantment.getEnchantment(Utils.rand(0, 35));
+                            if (Utils.random.nextDouble() < 0.3) {
+                                enchantment.setLevel(Utils.rand(1, enchantment.getMaxLevel()));
+                            }
+                            item.addEnchantment(enchantment);
                         }
                         tags[index] = NBTIO.putItemHelper(item, index);
                         break;
