@@ -4,10 +4,12 @@ import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.level.ChunkPopulateEvent;
 import cn.nukkit.level.Level;
+import cn.nukkit.level.generator.Generator;
 import cn.nukkit.level.generator.Normal;
 import cn.nukkit.level.generator.populator.type.Populator;
 import cn.nukkit.nbt.NBTIO;
 import cn.nukkit.nbt.tag.CompoundTag;
+import cn.nukkit.plugin.Plugin;
 import cn.nukkit.plugin.PluginBase;
 import worldgeneratorextension.mspop.populator.PopulatorMineshaft;
 import worldgeneratorextension.multitspop.populator.PopulatorIgloo;
@@ -41,8 +43,20 @@ public class Loader extends PluginBase implements Listener {
     private static final List<Populator> populatorsNether = new ArrayList<>();
 
     @Override
-    public void onEnable() {
+    public void onLoad() {
         INSTANCE = this;
+        
+        Generator.addGenerator(worldgeneratorextension.theend.generator.TheEndGenerator.class, "the_end", Generator.TYPE_THE_END);
+    }
+
+    @Override
+    public void onEnable() {
+        Plugin theEnd = getServer().getPluginManager().getPlugin("TheEnd");
+        if (theEnd != null && "cn.wode490390.nukkit.theend.TheEnd".equals(theEnd.getDescription().getMain())) {
+            getLogger().info("Disabling already loaded cn.wode490390.nukkit.theend.TheEnd");
+            getServer().getPluginManager().disablePlugin(theEnd);
+        }
+
         PopulatorFossil.init();
         PopulatorShipwreck.init();
         PopulatorIgloo.init();

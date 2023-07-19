@@ -11,3 +11,4 @@ Based on plugins made by [wode490390](https://github.com/wode490390)
 - https://github.com/wode490390/MultiTemplateStructurePopulator
 - https://github.com/wode490390/SingleTemplateStructurePopulator
 - https://github.com/wode490390/ScatteredBuildingPopulator
+- https://github.com/wode490390/TheEnd
