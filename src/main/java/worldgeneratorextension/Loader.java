@@ -51,6 +51,11 @@ public class Loader extends PluginBase implements Listener {
 
     @Override
     public void onEnable() {
+        if (!"Nukkit PetteriM1 Edition".equals(getServer().getName())) {
+            getServer().getPluginManager().disablePlugin(this);
+            return;
+        }
+
         Plugin theEnd = getServer().getPluginManager().getPlugin("TheEnd");
         if (theEnd != null && "cn.wode490390.nukkit.theend.TheEnd".equals(theEnd.getDescription().getMain())) {
             getLogger().info("Disabling already loaded cn.wode490390.nukkit.theend.TheEnd");

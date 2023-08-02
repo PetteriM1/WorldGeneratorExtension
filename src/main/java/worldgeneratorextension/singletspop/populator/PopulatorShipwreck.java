@@ -1,6 +1,7 @@
 package worldgeneratorextension.singletspop.populator;
 
 import cn.nukkit.Server;
+import cn.nukkit.block.Block;
 import cn.nukkit.level.ChunkManager;
 import cn.nukkit.level.Level;
 import cn.nukkit.level.biome.EnumBiome;
@@ -220,7 +221,7 @@ public class PopulatorShipwreck extends Populator implements CallbackableTemplat
         };
     }
 
-    public static final boolean[] FILTER = new boolean[512];
+    public static final boolean[] FILTER = new boolean[Block.MAX_BLOCK_ID];
 
     public static void init() {
         FILTER[AIR] = true;
