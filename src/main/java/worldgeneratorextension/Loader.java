@@ -80,7 +80,7 @@ public class Loader extends PluginBase implements Listener {
         populatorsOverworld.add(new PopulatorIgloo());
         populatorsOverworld.add(new PopulatorPillagerOutpost());
         populatorsOverworld.add(new PopulatorOceanRuin());
-        populatorsOverworld.add(new PopulatorVillage(true));
+        populatorsOverworld.add(new PopulatorVillage(Normal.seaHeight > 62));
         populatorsOverworld.add(new PopulatorStronghold());
         populatorsOverworld.add(new PopulatorOceanMonument());
         populatorsOverworld.add(new PopulatorMineshaft());
