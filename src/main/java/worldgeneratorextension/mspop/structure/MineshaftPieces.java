@@ -482,7 +482,7 @@ public class MineshaftPieces {
                 for (int z = 0; z <= z1; ++z) {
                     BlockState block = this.getBlock(level, 1, -1, z, boundingBox);
                     int id = level.getBlockIdAt(this.getWorldX(1, z), this.getWorldY(-1), this.getWorldZ(1, z));
-                    if (!block.equals(BlockState.AIR) && Block.solid[id] && !Block.transparent[id]) {
+                    if (!block.equals(BlockState.AIR) && Block.isBlockSolidById(id) && !Block.isBlockTransparentById(id)) {
                         this.maybeGenerateBlock(level, boundingBox, random, this.isInterior(level, 1, 0, z, boundingBox) ? 70 : 90, 1, 0, z, RAIL__NS);
                     }
                 }
