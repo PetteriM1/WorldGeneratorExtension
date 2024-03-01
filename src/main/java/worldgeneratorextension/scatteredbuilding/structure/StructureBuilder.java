@@ -36,7 +36,7 @@ public class StructureBuilder {
     }
 
     public void addRandomBlock(Map<Integer, Integer> blocks, int weight, int id, int meta) {
-        blocks.put((id << 4) | meta, weight);
+        blocks.put((id << Block.DATA_BITS) | meta, weight);
     }
 
     /**

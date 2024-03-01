@@ -1,7 +1,6 @@
 package worldgeneratorextension.global.block.state;
 
 import cn.nukkit.block.Block;
-import cn.nukkit.level.GlobalBlockPalette;
 import worldgeneratorextension.global.math.Rotation;
 
 public class BlockState {
@@ -26,14 +25,6 @@ public class BlockState {
 
     public int getMeta() {
         return this.meta;
-    }
-
-    public int getFullId() {
-        return (this.id << 4) | (this.meta & 0xf);
-    }
-
-    public int getRuntimeId() {
-        return GlobalBlockPalette.getOrCreateRuntimeId(this.id, this.meta);
     }
 
     public Block getBlock() {
@@ -74,13 +65,5 @@ public class BlockState {
     @Override
     public String toString() {
         return String.format("BlockState(id=%s, meta=%s)", this.id, this.meta);
-    }
-
-    public static BlockState fromFullId(int fullId) {
-        return new BlockState(fullId >> 4, fullId & 0xf);
-    }
-
-    public static BlockState fromHash(int hash) {
-        return new BlockState(hash >> 6, hash & 0x3f);
     }
 }

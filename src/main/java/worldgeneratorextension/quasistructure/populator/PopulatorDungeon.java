@@ -49,7 +49,7 @@ public class PopulatorDungeon extends Populator {
                         int tz = z + dz;
 
                         int id = level.getBlockIdAt(tx, ty, tz);
-                        boolean isSolid = Block.fullList[(id << 4) + level.getBlockDataAt(tx, ty, tz)].isSolid();
+                        boolean isSolid = Block.fullList[(id << Block.DATA_BITS) + level.getBlockDataAt(tx, ty, tz)].isSolid();
 
                         if (dy == -1 && !isSolid) {
                             continue chance;
@@ -80,7 +80,7 @@ public class PopulatorDungeon extends Populator {
                                 }
                             } else if (ty >= 0 && !Block.fullList[(level.getBlockIdAt(tx, ty - 1, tz) << 4) + level.getBlockDataAt(tx, ty - 1, tz)].isSolid()) {
                                 level.setBlockAt(tx, ty, tz, AIR);
-                            } else if (Block.fullList[(id << 4) + level.getBlockDataAt(tx, ty, tz)].isSolid() && id != CHEST) {
+                            } else if (Block.fullList[(id << Block.DATA_BITS) + level.getBlockDataAt(tx, ty, tz)].isSolid() && id != CHEST) {
                                 if (dy == -1 && random.nextBoundedInt(4) != 0) {
                                     level.setBlockAt(tx, ty, tz, MOSSY_STONE);
                                 } else {
