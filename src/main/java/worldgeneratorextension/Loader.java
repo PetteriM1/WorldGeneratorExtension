@@ -12,9 +12,7 @@ import cn.nukkit.nbt.tag.CompoundTag;
 import cn.nukkit.plugin.Plugin;
 import cn.nukkit.plugin.PluginBase;
 import worldgeneratorextension.mspop.populator.PopulatorMineshaft;
-import worldgeneratorextension.multitspop.populator.PopulatorIgloo;
-import worldgeneratorextension.multitspop.populator.PopulatorOceanRuin;
-import worldgeneratorextension.multitspop.populator.PopulatorPillagerOutpost;
+import worldgeneratorextension.multitspop.populator.*;
 import worldgeneratorextension.nbpop.populator.PopulatorNetherFortress;
 import worldgeneratorextension.nbpop.structure.NetherBridgePieces;
 import worldgeneratorextension.ompop.populator.PopulatorOceanMonument;
@@ -25,6 +23,7 @@ import worldgeneratorextension.scatteredbuilding.populator.PopulatorJungleTemple
 import worldgeneratorextension.scatteredbuilding.populator.PopulatorSwampHut;
 import worldgeneratorextension.shpop.populator.PopulatorStronghold;
 import worldgeneratorextension.singletspop.populator.PopulatorFossil;
+import worldgeneratorextension.singletspop.populator.PopulatorNetherFossil;
 import worldgeneratorextension.singletspop.populator.PopulatorShipwreck;
 import worldgeneratorextension.global.task.ChunkPopulateTask;
 import worldgeneratorextension.vipop.populator.PopulatorVillage;
@@ -45,13 +44,15 @@ public class Loader extends PluginBase implements Listener {
     @Override
     public void onLoad() {
         INSTANCE = this;
-        
-        Generator.addGenerator(worldgeneratorextension.theend.generator.TheEndGenerator.class, "the_end", Generator.TYPE_THE_END);
+
+        if (!"IGN".equals(getServer().getCodename())) {
+            Generator.addGenerator(worldgeneratorextension.theend.generator.TheEndGenerator.class, "the_end", Generator.TYPE_THE_END);
+        }
     }
 
     @Override
     public void onEnable() {
-        if (!"Nukkit PetteriM1 Edition".equals(getServer().getName())) {
+        if (!"Nukkit PetteriM1 Edition".equals(getServer().getName()) && !"IGN".equals(getServer().getCodename())) {
             getServer().getPluginManager().disablePlugin(this);
             return;
         }
@@ -67,11 +68,13 @@ public class Loader extends PluginBase implements Listener {
         PopulatorIgloo.init();
         PopulatorPillagerOutpost.init();
         PopulatorOceanRuin.init();
+        PopulatorRuinedPortal.init();
         VillagePieces.init();
         PopulatorStronghold.init();
         PopulatorOceanMonument.init();
         PopulatorMineshaft.init();
         NetherBridgePieces.init();
+        PopulatorNetherFossil.init();
         populatorsOverworld.add(new PopulatorFossil());
         populatorsOverworld.add(new PopulatorShipwreck());
         populatorsOverworld.add(new PopulatorSwampHut());
@@ -80,6 +83,7 @@ public class Loader extends PluginBase implements Listener {
         populatorsOverworld.add(new PopulatorIgloo());
         populatorsOverworld.add(new PopulatorPillagerOutpost());
         populatorsOverworld.add(new PopulatorOceanRuin());
+        populatorsOverworld.add(new PopulatorRuinedPortal());
         populatorsOverworld.add(new PopulatorVillage(Normal.seaHeight > 62));
         populatorsOverworld.add(new PopulatorStronghold());
         populatorsOverworld.add(new PopulatorOceanMonument());
@@ -87,6 +91,7 @@ public class Loader extends PluginBase implements Listener {
         populatorsOverworld.add(new PopulatorDesertWell());
         populatorsOverworld.add(new PopulatorDungeon());
         populatorsNether.add(new PopulatorNetherFortress());
+        populatorsNether.add(new PopulatorNetherFossil());
         getServer().getPluginManager().registerEvents(this, this);
     }
 
