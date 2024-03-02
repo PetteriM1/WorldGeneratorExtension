@@ -45,14 +45,12 @@ public class Loader extends PluginBase implements Listener {
     public void onLoad() {
         INSTANCE = this;
 
-        if (!"IGN".equals(getServer().getCodename())) {
-            Generator.addGenerator(worldgeneratorextension.theend.generator.TheEndGenerator.class, "the_end", Generator.TYPE_THE_END);
-        }
+        Generator.addGenerator(worldgeneratorextension.theend.generator.TheEndGenerator.class, "the_end", Generator.TYPE_THE_END);
     }
 
     @Override
     public void onEnable() {
-        if (!"Nukkit PetteriM1 Edition".equals(getServer().getName()) && !"IGN".equals(getServer().getCodename())) {
+        if (!"Nukkit PetteriM1 Edition".equals(getServer().getName())) {
             getServer().getPluginManager().disablePlugin(this);
             return;
         }

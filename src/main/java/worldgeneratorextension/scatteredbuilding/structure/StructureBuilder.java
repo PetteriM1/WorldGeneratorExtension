@@ -140,7 +140,7 @@ public class StructureBuilder {
 
     public void setBlockWithRandomBlock(BlockVector3 pos, NukkitRandom random, Map<Integer, Integer> blocks) {
         int fullId = this.getRandomBlock(random, blocks);
-        this.setBlock(pos, fullId >> 4, fullId & 0xf);
+        this.setBlock(pos, fullId >> Block.DATA_BITS, fullId & Block.DATA_MASK);
     }
 
     /**
@@ -208,7 +208,7 @@ public class StructureBuilder {
             for (int x = min.x; x <= max.x; x++) {
                 for (int z = min.z; z <= max.z; z++) {
                     int fullId = this.getRandomBlock(random, blocks);
-                    this.setBlock(new BlockVector3(x, y, z), fullId >> 4, fullId & 0xf);
+                    this.setBlock(new BlockVector3(x, y, z), fullId >> Block.DATA_BITS, fullId & Block.DATA_MASK);
                 }
             }
         }

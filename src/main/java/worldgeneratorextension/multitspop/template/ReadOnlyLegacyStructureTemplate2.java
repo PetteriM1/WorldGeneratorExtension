@@ -1,10 +1,7 @@
 package worldgeneratorextension.multitspop.template;
 
 import cn.nukkit.Server;
-import cn.nukkit.block.Block;
-import cn.nukkit.block.BlockID;
-import cn.nukkit.block.BlockSlabStone;
-import cn.nukkit.block.BlockStone;
+import cn.nukkit.block.*;
 import cn.nukkit.blockentity.BlockEntity;
 import cn.nukkit.item.RuntimeItemMapping;
 import cn.nukkit.item.RuntimeItems;
@@ -106,7 +103,7 @@ public class ReadOnlyLegacyStructureTemplate2 extends AbstractLegacyStructureTem
 
     @Override
     public boolean placeInChunk(FullChunk chunk, NukkitRandom random, BlockVector3 position, StructurePlaceSettings settings) {
-        if (this.isInvalid() || this.size.getX() > 16 || this.size.getZ() > 16) {
+        if (this.isInvalid() || this.size.getX() > 16 || this.size.getZ() > 16 || !(chunk instanceof LevelDBChunk)) {
             return false;
         }
 
@@ -131,11 +128,11 @@ public class ReadOnlyLegacyStructureTemplate2 extends AbstractLegacyStructureTem
             BlockVector3 vec = blockInfo.pos.add(position);
 
             if (id != BlockID.STRUCTURE_BLOCK) {
-                if (chunk instanceof LevelDBChunk && Block.isBlockTransparentById(id) && vec.getY() < 255 && (Block.hasWater(chunk.getBlockId(vec.getX() & 0x0f, vec.getY(), vec.getZ() & 0x0f)) || Block.hasWater(chunk.getBlockId(vec.getX() & 0x0f, vec.getY() + 1, vec.getZ() & 0x0f)))) {
+                if (Block.isBlockTransparentById(id) && vec.getY() < 255 && (Block.hasWater(chunk.getBlockId(vec.getX() & 0x0f, vec.getY(), vec.getZ() & 0x0f)) || Block.hasWater(chunk.getBlockId(vec.getX() & 0x0f, vec.getY() + 1, vec.getZ() & 0x0f)))) {
                     if (id == BlockID.LAVA || id == BlockID.STILL_LAVA) {
                         id = BlockID.MAGMA;
                     } else {
-                        ((LevelDBChunk) chunk).setFullBlockId(vec.getX() & 0x0f, vec.getY(), vec.getZ() & 0x0f, Block.STILL_WATER << Block.DATA_BITS, 1);
+                        chunk.setFullBlockId(vec.getX() & 0x0f, vec.getY(), vec.getZ() & 0x0f, BlockLayer.NORMAL, Block.STILL_WATER << Block.DATA_BITS);
                     }
                 }
                 chunk.setBlock(vec.getX() & 0x0f, vec.getY(), vec.getZ() & 0x0f, id, entry.getMeta());
