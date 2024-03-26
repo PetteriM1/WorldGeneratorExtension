@@ -3,7 +3,6 @@ package worldgeneratorextension.singletspop.template;
 import cn.nukkit.block.Block;
 import cn.nukkit.block.BlockID;
 import cn.nukkit.item.RuntimeItemMapping;
-import cn.nukkit.item.RuntimeItems;
 import cn.nukkit.level.ChunkManager;
 import cn.nukkit.level.format.FullChunk;
 import cn.nukkit.math.BlockVector3;
@@ -13,6 +12,7 @@ import cn.nukkit.nbt.tag.CompoundTag;
 import cn.nukkit.nbt.tag.DoubleTag;
 import cn.nukkit.nbt.tag.IntTag;
 import cn.nukkit.nbt.tag.ListTag;
+import worldgeneratorextension.Loader;
 
 import java.util.Comparator;
 import java.util.function.Consumer;
@@ -35,7 +35,7 @@ public class ReadOnlyLegacyStructureTemplate2 extends AbstractLegacyStructureTem
                 palette.addMapping(new BlockEntry(tag.getShort("id"), tag.getShort("meta")), i);
             } else {
                 String name = tag.getString("Name");
-                RuntimeItemMapping.LegacyEntry entry = RuntimeItems.getMapping(419).fromIdentifier(name);
+                RuntimeItemMapping.LegacyEntry entry = Loader.getRuntimeItemMapptings().fromIdentifier(name);
                 if (entry != null && entry.getLegacyId() > 0) {
                     if (entry.getLegacyId() == BlockID.CHEST) {
                         palette.addMapping(new BlockEntry(entry.getLegacyId(), 4), i);

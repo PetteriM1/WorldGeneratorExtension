@@ -4,7 +4,6 @@ import cn.nukkit.Server;
 import cn.nukkit.block.*;
 import cn.nukkit.blockentity.BlockEntity;
 import cn.nukkit.item.RuntimeItemMapping;
-import cn.nukkit.item.RuntimeItems;
 import cn.nukkit.level.ChunkManager;
 import cn.nukkit.level.Level;
 import cn.nukkit.level.format.FullChunk;
@@ -54,7 +53,7 @@ public class ReadOnlyLegacyStructureTemplate2 extends AbstractLegacyStructureTem
                 palette.addMapping(new BlockEntry(tag.getShort("id"), tag.getShort("meta")), i);
             } else {
                 String name = tag.getString("Name");
-                RuntimeItemMapping.LegacyEntry entry = RuntimeItems.getMapping(419).fromIdentifier(name);
+                RuntimeItemMapping.LegacyEntry entry = Loader.getRuntimeItemMapptings().fromIdentifier(name);
                 if (entry != null && entry.getLegacyId() > 0) {
                     if (entry.getLegacyId() == BlockID.CHEST) {
                         palette.addMapping(new BlockEntry(entry.getLegacyId(), 4), i);

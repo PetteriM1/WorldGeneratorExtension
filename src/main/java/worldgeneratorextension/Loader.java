@@ -1,11 +1,15 @@
 package worldgeneratorextension;
 
+import cn.nukkit.Server;
 import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.level.ChunkPopulateEvent;
+import cn.nukkit.item.RuntimeItemMapping;
+import cn.nukkit.item.RuntimeItems;
 import cn.nukkit.level.Level;
 import cn.nukkit.level.generator.Generator;
 import cn.nukkit.level.generator.Normal;
+import cn.nukkit.level.generator.Void;
 import cn.nukkit.level.generator.populator.type.Populator;
 import cn.nukkit.nbt.NBTIO;
 import cn.nukkit.nbt.tag.CompoundTag;
@@ -50,11 +54,6 @@ public class Loader extends PluginBase implements Listener {
 
     @Override
     public void onEnable() {
-        if (!"Nukkit PetteriM1 Edition".equals(getServer().getName())) {
-            getServer().getPluginManager().disablePlugin(this);
-            return;
-        }
-
         Plugin theEnd = getServer().getPluginManager().getPlugin("TheEnd");
         if (theEnd != null && "cn.wode490390.nukkit.theend.TheEnd".equals(theEnd.getDescription().getMain())) {
             getLogger().info("Disabling already loaded cn.wode490390.nukkit.theend.TheEnd");
@@ -104,10 +103,21 @@ public class Loader extends PluginBase implements Listener {
     @EventHandler
     public void onChunkPopulate(ChunkPopulateEvent event) {
         Level level = event.getLevel();
-        if (level.getDimension() == Level.DIMENSION_OVERWORLD && (!getServer().suomiCraftPEMode() || level.getGenerator() instanceof Normal)) {
+        if (level.getDimension() == Level.DIMENSION_OVERWORLD && !(level.getGenerator() instanceof Void)) {
             getServer().getScheduler().scheduleAsyncTask(this, new ChunkPopulateTask(level, event.getChunk(), Loader.populatorsOverworld));
         } else if (level.getDimension() == Level.DIMENSION_NETHER) {
             getServer().getScheduler().scheduleAsyncTask(this, new ChunkPopulateTask(level, event.getChunk(), Loader.populatorsNether));
+        }
+    }
+
+    public static RuntimeItemMapping getRuntimeItemMapptings() {
+        if ("Nukkit PetteriM1 Edition".equals(Server.getInstance().getName())) {
+            return RuntimeItems.getMapping(419);
+        }
+        try {
+            return (RuntimeItemMapping) Class.forName("cn.nukkit.item.RuntimeItems").getMethod("getMapping").invoke(null);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to get RuntimeItemMapping", e);
         }
     }
 }
