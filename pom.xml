@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>worldgeneratorextension</groupId>
     <artifactId>WorldGeneratorExtension</artifactId>
-    <version>1.3.1</version>
+    <version>1.4.0</version>
     <build>
         <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
         <plugins>
@@ -79,6 +79,14 @@
                 <targetPath>./structures/nether_fossils</targetPath>
                 <filtering>false</filtering>
                 <directory>${basedir}/src/main/resources/structures/nether_fossils</directory>
+                <includes>
+                    <include>*</include>
+                </includes>
+            </resource>
+            <resource>
+                <targetPath>./structures/coralcrust</targetPath>
+                <filtering>false</filtering>
+                <directory>${basedir}/src/main/resources/structures/coralcrust</directory>
                 <includes>
                     <include>*</include>
                 </includes>

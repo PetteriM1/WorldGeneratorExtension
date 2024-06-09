@@ -127,7 +127,7 @@ public class ReadOnlyLegacyStructureTemplate2 extends AbstractLegacyStructureTem
             BlockVector3 vec = blockInfo.pos.add(position);
 
             if (id != BlockID.STRUCTURE_BLOCK) {
-                if (Block.isBlockTransparentById(id) && vec.getY() < 255 && (Block.hasWater(chunk.getBlockId(vec.getX() & 0x0f, vec.getY(), vec.getZ() & 0x0f)) || Block.hasWater(chunk.getBlockId(vec.getX() & 0x0f, vec.getY() + 1, vec.getZ() & 0x0f)))) {
+                if (Block.isBlockTransparentById(id) && vec.getY() < 255 && (worldgeneratorextension.global.block.BlockTypes.isWater(chunk.getBlockId(vec.getX() & 0x0f, vec.getY(), vec.getZ() & 0x0f)) || worldgeneratorextension.global.block.BlockTypes.isWater(chunk.getBlockId(vec.getX() & 0x0f, vec.getY() + 1, vec.getZ() & 0x0f)))) {
                     if (id == BlockID.LAVA || id == BlockID.STILL_LAVA) {
                         id = BlockID.MAGMA;
                     } else {

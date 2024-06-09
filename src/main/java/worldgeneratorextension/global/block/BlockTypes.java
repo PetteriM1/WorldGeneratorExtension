@@ -8,6 +8,10 @@ public final class BlockTypes {
         return id == Block.WATER || id == Block.STILL_WATER || id == Block.LAVA || id == Block.STILL_LAVA;
     }
 
+    public static boolean isWater(int id) {
+        return id == Block.WATER || id == Block.STILL_WATER;
+    }
+
     public static final boolean[] isPlant = new boolean[Block.MAX_BLOCK_ID];
 
     static {

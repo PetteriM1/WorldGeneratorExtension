@@ -50,9 +50,8 @@ public class PopulatorNetherFossil extends Populator {
                 return;
             }
 
-            int index = random.nextBoundedInt(FOSSILS.length);
             BlockVector3 vec = new BlockVector3(chunkX << 4, y, chunkZ << 4);
-            FOSSILS[index].placeInChunk(chunk, random, vec, 100, null);
+            FOSSILS[random.nextBoundedInt(FOSSILS.length)].placeInChunk(chunk, random, vec, 100, null);
         }
     }
 

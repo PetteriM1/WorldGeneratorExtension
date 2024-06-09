@@ -184,11 +184,14 @@ public class PopulatorOceanMonument extends Populator {
         // Oceans
         WATER_BIOMES[EnumBiome.OCEAN.id] = true;
         WATER_BIOMES[EnumBiome.FROZEN_OCEAN.id] = true;
+        WATER_BIOMES[EnumBiome.WARM_OCEAN.id] = true;
+        WATER_BIOMES[EnumBiome.LUKEWARM_OCEAN.id] = true;
+        WATER_BIOMES[EnumBiome.COLD_OCEAN.id] = true;
         WATER_BIOMES[EnumBiome.DEEP_OCEAN.id] = DEEP_OCEAN_BIOMES[EnumBiome.DEEP_OCEAN.id] = true;
-        WATER_BIOMES[47] = DEEP_OCEAN_BIOMES[47] = true; //DEEP_WARM_OCEAN
-        WATER_BIOMES[48] = DEEP_OCEAN_BIOMES[48] = true; //DEEP_LUKEWARM_OCEAN
-        WATER_BIOMES[49] = DEEP_OCEAN_BIOMES[49] = true; //DEEP_COLD_OCEAN
-        WATER_BIOMES[50] = DEEP_OCEAN_BIOMES[50] = true; //DEEP_FROZEN_OCEAN
+        WATER_BIOMES[EnumBiome.DEEP_WARM_OCEAN.id] = DEEP_OCEAN_BIOMES[EnumBiome.DEEP_WARM_OCEAN.id] = true;
+        WATER_BIOMES[EnumBiome.DEEP_LUKEWARM_OCEAN.id] = DEEP_OCEAN_BIOMES[EnumBiome.DEEP_LUKEWARM_OCEAN.id] = true;
+        WATER_BIOMES[EnumBiome.DEEP_COLD_OCEAN.id] = DEEP_OCEAN_BIOMES[EnumBiome.DEEP_COLD_OCEAN.id] = true;
+        WATER_BIOMES[EnumBiome.DEEP_FROZEN_OCEAN.id] = DEEP_OCEAN_BIOMES[EnumBiome.DEEP_FROZEN_OCEAN.id] = true;
         // Rivers
         WATER_BIOMES[EnumBiome.RIVER.id] = true;
         WATER_BIOMES[EnumBiome.FROZEN_RIVER.id] = true;

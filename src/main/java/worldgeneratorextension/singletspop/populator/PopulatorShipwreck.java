@@ -13,6 +13,7 @@ import cn.nukkit.math.NukkitRandom;
 import cn.nukkit.nbt.tag.CompoundTag;
 import cn.nukkit.nbt.tag.ListTag;
 import worldgeneratorextension.Loader;
+import worldgeneratorextension.global.biome.BiomeTypes;
 import worldgeneratorextension.global.task.CallbackableChunkGenerationTask;
 import worldgeneratorextension.singletspop.loot.ShipwreckMapChest;
 import worldgeneratorextension.singletspop.loot.ShipwreckSupplyChest;
@@ -95,13 +96,12 @@ public class PopulatorShipwreck extends Populator implements CallbackableTemplat
     @Override
     public void populate(ChunkManager level, int chunkX, int chunkZ, NukkitRandom random, FullChunk chunk) {
         int biome = chunk.getBiomeId(5, 5);
-        if ((biome == EnumBiome.OCEAN.id || biome == EnumBiome.DEEP_OCEAN.id || biome == EnumBiome.FROZEN_OCEAN.id
-                || biome == EnumBiome.BEACH.id || (biome >= 44 && biome <= 50))
+        if ((BiomeTypes.OCEAN_BIOMES[biome] || biome == EnumBiome.BEACH.id || biome == EnumBiome.COLD_BEACH.id)
                 && chunkX == (((chunkX < 0 ? (chunkX - SPACING + 1) : chunkX) / SPACING) * SPACING) + random.nextBoundedInt(SPACING - SEPARATION)
                 && chunkZ == (((chunkZ < 0 ? (chunkZ - SPACING + 1) : chunkZ) / SPACING) * SPACING) + random.nextBoundedInt(SPACING - SEPARATION)) {
             ReadableStructureTemplate template;
 
-            if (biome == EnumBiome.BEACH.id) {
+            if (biome == EnumBiome.BEACH.id || biome == EnumBiome.COLD_BEACH.id) {
                 template = STRUCTURE_LOCATION_BEACHED[random.nextBoundedInt(STRUCTURE_LOCATION_BEACHED.length)];
             } else {
                 template = STRUCTURE_LOCATION_OCEAN[random.nextBoundedInt(STRUCTURE_LOCATION_OCEAN.length)];

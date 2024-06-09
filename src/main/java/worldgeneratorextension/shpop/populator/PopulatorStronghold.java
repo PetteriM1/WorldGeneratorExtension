@@ -129,7 +129,7 @@ public class PopulatorStronghold extends Populator {
         VALID_BIOMES[EnumBiome.FOREST.id] = true;
         VALID_BIOMES[EnumBiome.TAIGA.id] = true;
         VALID_BIOMES[EnumBiome.ICE_PLAINS.id] = true;
-        VALID_BIOMES[13] = true; //SNOWY_MOUNTAINS
+        VALID_BIOMES[EnumBiome.ICE_MOUNTAINS.id] = true;
         VALID_BIOMES[EnumBiome.MUSHROOM_ISLAND.id] = true;
         VALID_BIOMES[EnumBiome.MUSHROOM_ISLAND_SHORE.id] = true;
         VALID_BIOMES[EnumBiome.DESERT_HILLS.id] = true;
@@ -166,15 +166,15 @@ public class PopulatorStronghold extends Populator {
         VALID_BIOMES[EnumBiome.ROOFED_FOREST_M.id] = true;
         VALID_BIOMES[EnumBiome.COLD_TAIGA_M.id] = true;
         VALID_BIOMES[EnumBiome.MEGA_SPRUCE_TAIGA.id] = true;
-        VALID_BIOMES[161] = true; //GIANT_SPRUCE_TAIGA_HILLS
+        VALID_BIOMES[EnumBiome.MEGA_SPRUCE_TAIGA_HILLS.id] = true;
         VALID_BIOMES[EnumBiome.EXTREME_HILLS_PLUS_M.id] = true;
         VALID_BIOMES[EnumBiome.SAVANNA_M.id] = true;
         VALID_BIOMES[EnumBiome.SAVANNA_PLATEAU_M.id] = true;
         VALID_BIOMES[EnumBiome.MESA_BRYCE.id] = true;
         VALID_BIOMES[EnumBiome.MESA_PLATEAU_F_M.id] = true;
         VALID_BIOMES[EnumBiome.MESA_PLATEAU_M.id] = true;
-        VALID_BIOMES[168] = true; //BAMBOO_JUNGLE
-        VALID_BIOMES[169] = true; //BAMBOO_JUNGLE_HILLS
+        VALID_BIOMES[EnumBiome.BAMBOO_JUNGLE.id] = true;
+        VALID_BIOMES[EnumBiome.BAMBOO_JUNGLE_HILLS.id] = true;
 
         StrongholdPieces.init();
     }

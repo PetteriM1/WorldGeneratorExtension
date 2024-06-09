@@ -4,7 +4,6 @@ import cn.nukkit.Server;
 import cn.nukkit.blockentity.BlockEntity;
 import cn.nukkit.level.ChunkManager;
 import cn.nukkit.level.ChunkPosition;
-import cn.nukkit.level.biome.EnumBiome;
 import cn.nukkit.level.format.FullChunk;
 import cn.nukkit.level.format.generic.BaseFullChunk;
 import cn.nukkit.level.generator.populator.type.Populator;
@@ -13,6 +12,7 @@ import cn.nukkit.math.NukkitRandom;
 import cn.nukkit.nbt.tag.CompoundTag;
 import cn.nukkit.nbt.tag.ListTag;
 import worldgeneratorextension.Loader;
+import worldgeneratorextension.global.biome.BiomeTypes;
 import worldgeneratorextension.global.block.BlockTypes;
 import worldgeneratorextension.global.task.CallbackableChunkGenerationTask;
 import worldgeneratorextension.multitspop.loot.RuinBigChest;
@@ -45,7 +45,7 @@ public class PopulatorOceanRuin extends Populator {
     @Override
     public void populate(ChunkManager level, int chunkX, int chunkZ, NukkitRandom random, FullChunk chunk) {
         int biome = chunk.getBiomeId(7, 7);
-        if ((biome == EnumBiome.OCEAN.id || biome == EnumBiome.FROZEN_OCEAN.id || biome == EnumBiome.DEEP_OCEAN.id || biome >= 44 && biome <= 50)
+        if (BiomeTypes.OCEAN_BIOMES[biome]
                 && chunkX == (((chunkX < 0 ? (chunkX - SPACING + 1) : chunkX) / SPACING) * SPACING) + random.nextBoundedInt(SPACING - SEPARATION)
                 && chunkZ == (((chunkZ < 0 ? (chunkZ - SPACING + 1) : chunkZ) / SPACING) * SPACING) + random.nextBoundedInt(SPACING - SEPARATION)) {
             boolean isWarm = random.nextBoundedInt(10) < 4;

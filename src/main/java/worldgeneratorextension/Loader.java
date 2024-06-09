@@ -26,6 +26,7 @@ import worldgeneratorextension.scatteredbuilding.populator.PopulatorDesertPyrami
 import worldgeneratorextension.scatteredbuilding.populator.PopulatorJungleTemple;
 import worldgeneratorextension.scatteredbuilding.populator.PopulatorSwampHut;
 import worldgeneratorextension.shpop.populator.PopulatorStronghold;
+import worldgeneratorextension.singletspop.populator.PopulatorCoralCrust;
 import worldgeneratorextension.singletspop.populator.PopulatorFossil;
 import worldgeneratorextension.singletspop.populator.PopulatorNetherFossil;
 import worldgeneratorextension.singletspop.populator.PopulatorShipwreck;
@@ -87,6 +88,7 @@ public class Loader extends PluginBase implements Listener {
         populatorsOverworld.add(new PopulatorMineshaft());
         populatorsOverworld.add(new PopulatorDesertWell());
         populatorsOverworld.add(new PopulatorDungeon());
+        populatorsOverworld.add(new PopulatorCoralCrust());
         populatorsNether.add(new PopulatorNetherFortress());
         populatorsNether.add(new PopulatorNetherFossil());
         getServer().getPluginManager().registerEvents(this, this);

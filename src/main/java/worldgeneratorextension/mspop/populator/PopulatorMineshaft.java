@@ -64,6 +64,7 @@ public class PopulatorMineshaft extends Populator {
 
     public static void init() {
         VALID_BIOMES[EnumBiome.OCEAN.id] = true;
+        VALID_BIOMES[EnumBiome.WARM_OCEAN.id] = true;
         VALID_BIOMES[EnumBiome.PLAINS.id] = true;
         VALID_BIOMES[EnumBiome.DESERT.id] = true;
         VALID_BIOMES[EnumBiome.EXTREME_HILLS.id] = true;
@@ -74,7 +75,7 @@ public class PopulatorMineshaft extends Populator {
         VALID_BIOMES[EnumBiome.FROZEN_OCEAN.id] = true;
         VALID_BIOMES[EnumBiome.FROZEN_RIVER.id] = true;
         VALID_BIOMES[EnumBiome.ICE_PLAINS.id] = true;
-        VALID_BIOMES[13] = true; //SNOWY_MOUNTAINS
+        VALID_BIOMES[EnumBiome.ICE_MOUNTAINS.id] = true;
         VALID_BIOMES[EnumBiome.MUSHROOM_ISLAND.id] = true;
         VALID_BIOMES[EnumBiome.MUSHROOM_ISLAND_SHORE.id] = true;
         VALID_BIOMES[EnumBiome.BEACH.id] = true;
@@ -101,13 +102,13 @@ public class PopulatorMineshaft extends Populator {
         VALID_BIOMES[EnumBiome.MESA.id] = true;
         VALID_BIOMES[EnumBiome.MESA_PLATEAU_F.id] = true;
         VALID_BIOMES[EnumBiome.MESA_PLATEAU.id] = true;
-        VALID_BIOMES[44] = true; // WARM_OCEAN
-        VALID_BIOMES[45] = true; // LUKEWARM_OCEAN
-        VALID_BIOMES[46] = true; // COLD_OCEAN
-        VALID_BIOMES[47] = true; // DEEP_WARM_OCEAN
-        VALID_BIOMES[48] = true; // DEEP_LUKEWARM_OCEAN
-        VALID_BIOMES[49] = true; // DEEP_COLD_OCEAN
-        VALID_BIOMES[50] = true; // DEEP_FROZEN_OCEAN
+        VALID_BIOMES[EnumBiome.WARM_OCEAN.id] = true;
+        VALID_BIOMES[EnumBiome.LUKEWARM_OCEAN.id] = true;
+        VALID_BIOMES[EnumBiome.COLD_OCEAN.id] = true;
+        VALID_BIOMES[EnumBiome.DEEP_WARM_OCEAN.id] = true;
+        VALID_BIOMES[EnumBiome.DEEP_LUKEWARM_OCEAN.id] = true;
+        VALID_BIOMES[EnumBiome.DEEP_COLD_OCEAN.id] = true;
+        VALID_BIOMES[EnumBiome.DEEP_FROZEN_OCEAN.id] = true;
         VALID_BIOMES[EnumBiome.SUNFLOWER_PLAINS.id] = true;
         VALID_BIOMES[EnumBiome.DESERT_M.id] = true;
         VALID_BIOMES[EnumBiome.EXTREME_HILLS_M.id] = true;
@@ -122,15 +123,15 @@ public class PopulatorMineshaft extends Populator {
         VALID_BIOMES[EnumBiome.ROOFED_FOREST_M.id] = true;
         VALID_BIOMES[EnumBiome.COLD_TAIGA_M.id] = true;
         VALID_BIOMES[EnumBiome.MEGA_SPRUCE_TAIGA.id] = true;
-        VALID_BIOMES[161] = true; //GIANT_SPRUCE_TAIGA_HILLS
+        VALID_BIOMES[EnumBiome.MEGA_SPRUCE_TAIGA_HILLS.id] = true;
         VALID_BIOMES[EnumBiome.EXTREME_HILLS_PLUS_M.id] = true;
         VALID_BIOMES[EnumBiome.SAVANNA_M.id] = true;
         VALID_BIOMES[EnumBiome.SAVANNA_PLATEAU_M.id] = true;
         VALID_BIOMES[EnumBiome.MESA_BRYCE.id] = true;
         VALID_BIOMES[EnumBiome.MESA_PLATEAU_F_M.id] = true;
         VALID_BIOMES[EnumBiome.MESA_PLATEAU_M.id] = true;
-        VALID_BIOMES[168] = true; //BAMBOO_JUNGLE
-        VALID_BIOMES[169] = true; //BAMBOO_JUNGLE_HILLS
+        VALID_BIOMES[EnumBiome.BAMBOO_JUNGLE.id] = true;
+        VALID_BIOMES[EnumBiome.BAMBOO_JUNGLE_HILLS.id] = true;
 
         MineshaftPieces.init();
     }
