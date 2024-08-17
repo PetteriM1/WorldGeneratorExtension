@@ -4,14 +4,15 @@ import cn.nukkit.level.ChunkManager;
 import cn.nukkit.level.format.FullChunk;
 import cn.nukkit.level.generator.populator.type.Populator;
 import cn.nukkit.math.NukkitRandom;
-import worldgeneratorextension.theend.generator.TheEndGenerator;
+import worldgeneratorextension.Loader;
+import worldgeneratorextension.theend.noise.SimplexNoise;
 
 public class PopulatorChorusPlant extends Populator {
 
-    private final TheEndGenerator end;
+    private final SimplexNoise islandNoise;
 
-    public PopulatorChorusPlant(TheEndGenerator end) {
-        this.end = end;
+    public PopulatorChorusPlant(SimplexNoise islandNoise) {
+        this.islandNoise = islandNoise;
     }
 
     @Override
@@ -20,12 +21,13 @@ public class PopulatorChorusPlant extends Populator {
             return;
         }
 
-        if (this.end.getIslandHeight(chunkX, chunkZ) < -20) {
+        if (Loader.getEndIslandHeight(chunkX, chunkZ, islandNoise) < -20) {
             for (int i = 0; i < random.nextBoundedInt(5); ++i) {
                 int x = (chunkX << 4) + random.nextBoundedInt(16) + 8;
                 int z = (chunkZ << 4) + random.nextBoundedInt(16) + 8;
                 int y = getHighestWorkableBlock(level, x, z, chunk) + 1;
-                if (y > 0 && level.getBlockIdAt(x, y - 1, z) == END_STONE && level.getBlockIdAt(x, y, z) == AIR) {
+
+                if (y > 56 && level.getBlockIdAt(x, y - 1, z) == END_STONE && level.getBlockIdAt(x, y, z) == AIR) {
                     this.generate(level, x, y, z, 8, random);
                 }
             }

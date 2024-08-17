@@ -4,14 +4,15 @@ import cn.nukkit.level.ChunkManager;
 import cn.nukkit.level.format.FullChunk;
 import cn.nukkit.level.generator.populator.type.Populator;
 import cn.nukkit.math.NukkitRandom;
-import worldgeneratorextension.theend.generator.TheEndGenerator;
+import worldgeneratorextension.Loader;
+import worldgeneratorextension.theend.noise.SimplexNoise;
 
 public class PopulatorEndIsland extends Populator {
 
-    private final TheEndGenerator end;
+    private final SimplexNoise islandNoise;
 
-    public PopulatorEndIsland(TheEndGenerator end) {
-        this.end = end;
+    public PopulatorEndIsland(SimplexNoise islandNoise) {
+        this.islandNoise = islandNoise;
     }
 
     @Override
@@ -20,7 +21,7 @@ public class PopulatorEndIsland extends Populator {
             return;
         }
 
-        if (this.end.getIslandHeight(chunkX, chunkZ) < -20 && random.nextBoundedInt(14) == 0) {
+        if (Loader.getEndIslandHeight(chunkX, chunkZ, islandNoise) < -20 && random.nextBoundedInt(14) == 0) {
             int x = chunkX << 4;
             int z = chunkZ << 4;
             this.generate(level, x, z, random);
@@ -35,6 +36,12 @@ public class PopulatorEndIsland extends Populator {
         x += random.nextBoundedInt(16) + 8;
         z += random.nextBoundedInt(16) + 8;
         int y = 55 + random.nextBoundedInt(16);
+
+        for (int i = 1; i < 20; i++) {
+            if (level.getBlockIdAt(x, y - i, z) != 0) {
+                return;
+            }
+        }
 
         float f = random.nextBoundedInt(3) + 4;
         for (int i = 0; f > 0.5; --i) {

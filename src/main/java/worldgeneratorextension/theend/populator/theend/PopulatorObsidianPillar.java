@@ -16,6 +16,7 @@ public class PopulatorObsidianPillar extends PopulatorBlock {
 
     public PopulatorObsidianPillar(ObsidianPillar obsidianPillar) {
         this.obsidianPillar = obsidianPillar;
+        this.amount = 1;
     }
 
     @Override
