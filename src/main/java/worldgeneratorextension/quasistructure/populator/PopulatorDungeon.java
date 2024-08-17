@@ -78,7 +78,7 @@ public class PopulatorDungeon extends Populator {
                                 if (id != CHEST) {
                                     level.setBlockAt(tx, ty, tz, AIR);
                                 }
-                            } else if (ty >= 0 && !Block.fullList[(level.getBlockIdAt(tx, ty - 1, tz) << 4) + level.getBlockDataAt(tx, ty - 1, tz)].isSolid()) {
+                            } else if (ty >= 0 && !Block.fullList[(level.getBlockIdAt(tx, ty - 1, tz) << Block.DATA_BITS) + level.getBlockDataAt(tx, ty - 1, tz)].isSolid()) {
                                 level.setBlockAt(tx, ty, tz, AIR);
                             } else if (Block.fullList[(id << Block.DATA_BITS) + level.getBlockDataAt(tx, ty, tz)].isSolid() && id != CHEST) {
                                 if (dy == -1 && random.nextBoundedInt(4) != 0) {
@@ -99,16 +99,16 @@ public class PopulatorDungeon extends Populator {
                         if (level.getBlockIdAt(tx, y, tz) == AIR) {
                             int n = 0;
 
-                            if (Block.fullList[(level.getBlockIdAt(tx - 1, y, tz) << 4) + level.getBlockDataAt(tx - 1, y, tz)].isSolid()) {
+                            if (Block.fullList[(level.getBlockIdAt(tx - 1, y, tz) << Block.DATA_BITS) + level.getBlockDataAt(tx - 1, y, tz)].isSolid()) {
                                 ++n;
                             }
-                            if (Block.fullList[(level.getBlockIdAt(tx + 1, y, tz) << 4) + level.getBlockDataAt(tx + 1, y, tz)].isSolid()) {
+                            if (Block.fullList[(level.getBlockIdAt(tx + 1, y, tz) << Block.DATA_BITS) + level.getBlockDataAt(tx + 1, y, tz)].isSolid()) {
                                 ++n;
                             }
-                            if (Block.fullList[(level.getBlockIdAt(tx, y, tz - 1) << 4) + level.getBlockDataAt(tx, y, tz - 1)].isSolid()) {
+                            if (Block.fullList[(level.getBlockIdAt(tx, y, tz - 1) << Block.DATA_BITS) + level.getBlockDataAt(tx, y, tz - 1)].isSolid()) {
                                 ++n;
                             }
-                            if (Block.fullList[(level.getBlockIdAt(tx, y, tz + 1) << 4) + level.getBlockDataAt(tx, y, tz + 1)].isSolid()) {
+                            if (Block.fullList[(level.getBlockIdAt(tx, y, tz + 1) << Block.DATA_BITS) + level.getBlockDataAt(tx, y, tz + 1)].isSolid()) {
                                 ++n;
                             }
 
