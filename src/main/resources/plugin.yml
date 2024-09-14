@@ -1,4 +1,4 @@
 name: WorldGeneratorExtension
 main: worldgeneratorextension.Loader
 version: "${pom.version}"
-api: ["1.0.20"]
+api: ["1.1.0"]
