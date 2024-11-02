@@ -16,6 +16,7 @@ import worldgeneratorextension.multitspop.loot.PortalChest;
 import worldgeneratorextension.multitspop.template.ReadOnlyLegacyStructureTemplate2;
 import worldgeneratorextension.multitspop.template.ReadableStructureTemplate;
 import worldgeneratorextension.multitspop.template.StructurePlaceSettings;
+import worldgeneratorextension.singletspop.populator.PopulatorShipwreck;
 
 import java.util.function.Consumer;
 
@@ -24,7 +25,7 @@ public class PopulatorRuinedPortal extends Populator {
     protected static final ReadableStructureTemplate PORTAL3 = new ReadOnlyLegacyStructureTemplate2().load(Loader.loadNBT("structures/ruined_portal/portal_3.nbt"));
     protected static final ReadableStructureTemplate PORTAL4 = new ReadOnlyLegacyStructureTemplate2().load(Loader.loadNBT("structures/ruined_portal/portal_4.nbt"));
 
-    protected static final int SPACING = 20;
+    protected static final int SPACING = 24;
     protected static final int SEPARATION = 8;
 
     @Override
@@ -46,7 +47,7 @@ public class PopulatorRuinedPortal extends Populator {
                     }
 
                     int id = chunk.getBlockId(x, y, z);
-                    while (FILTER[id] && y > 0) {
+                    while (PopulatorShipwreck.FILTER[id] && y > 0) {
                         id = chunk.getBlockId(x, --y, z);
                     }
 
@@ -77,37 +78,8 @@ public class PopulatorRuinedPortal extends Populator {
         }
     }
 
-    public static final boolean[] FILTER = new boolean[Block.MAX_BLOCK_ID];
-
     public static void init() {
-        FILTER[AIR] = true;
-        FILTER[LOG] = true;
-        FILTER[WATER] = true;
-        FILTER[STILL_WATER] = true;
-        FILTER[LAVA] = true;
-        FILTER[STILL_LAVA] = true;
-        FILTER[LEAVES] = true;
-        FILTER[TALL_GRASS] = true;
-        FILTER[DEAD_BUSH] = true;
-        FILTER[DANDELION] = true;
-        FILTER[RED_FLOWER] = true;
-        FILTER[BROWN_MUSHROOM] = true;
-        FILTER[RED_MUSHROOM] = true;
-        FILTER[SNOW_LAYER] = true;
-        FILTER[ICE] = true;
-        FILTER[CACTUS] = true;
-        FILTER[REEDS] = true;
-        FILTER[PUMPKIN] = true;
-        FILTER[BROWN_MUSHROOM_BLOCK] = true;
-        FILTER[RED_MUSHROOM_BLOCK] = true;
-        FILTER[MELON_BLOCK] = true;
-        FILTER[VINE] = true;
-        FILTER[WATER_LILY] = true;
-        FILTER[COCOA] = true;
-        FILTER[LEAVES2] = true;
-        FILTER[LOG2] = true;
-        FILTER[PACKED_ICE] = true;
-        FILTER[DOUBLE_PLANT] = true;
+        //NOOP
     }
 
     protected static Consumer<CompoundTag> getBlockActorProcessor(FullChunk chunk, NukkitRandom random) {

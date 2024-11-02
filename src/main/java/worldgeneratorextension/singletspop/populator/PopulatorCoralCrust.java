@@ -50,15 +50,21 @@ public class PopulatorCoralCrust extends Populator {
 
             int y;
             int previous = -1;
+            boolean found = false;
 
             for (y = Normal.seaHeight; y >= 40; y--) {
                 int b = chunk.getBlockId(0, y, 0);
 
                 if ((previous == BlockID.WATER || previous == BlockID.STILL_WATER) && (b == BlockID.GRAVEL || b == BlockID.SAND)) {
+                    found = true;
                     break;
                 }
 
                 previous = b;
+            }
+
+            if (!found) {
+                return;
             }
 
             BlockVector3 vec = new BlockVector3(chunkX + x, y - 1, chunkZ + z);
