@@ -61,9 +61,4 @@ public class BlockState {
     public int hashCode() {
         return this.id << 6 | this.meta;
     }
-
-    @Override
-    public String toString() {
-        return String.format("BlockState(id=%s, meta=%s)", this.id, this.meta);
-    }
 }

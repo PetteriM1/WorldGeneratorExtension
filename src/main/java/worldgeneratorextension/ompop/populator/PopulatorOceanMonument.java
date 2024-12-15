@@ -10,9 +10,9 @@ import cn.nukkit.level.generator.populator.type.Populator;
 import cn.nukkit.math.BlockFace;
 import cn.nukkit.math.NukkitRandom;
 import worldgeneratorextension.global.math.BoundingBox;
+import worldgeneratorextension.global.structure.StructureStart;
 import worldgeneratorextension.global.task.CallbackableChunkGenerationTask;
 import worldgeneratorextension.ompop.structure.OceanMonumentPieces;
-import worldgeneratorextension.ompop.structure.StructureStart;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 

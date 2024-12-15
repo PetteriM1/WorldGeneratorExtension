@@ -1,4 +1,4 @@
-package worldgeneratorextension.singletspop.template;
+package worldgeneratorextension.global.template;
 
 import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;

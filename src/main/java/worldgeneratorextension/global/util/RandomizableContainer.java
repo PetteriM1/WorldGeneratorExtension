@@ -1,4 +1,4 @@
-package worldgeneratorextension.global;
+package worldgeneratorextension.global.util;
 
 import cn.nukkit.item.Item;
 import cn.nukkit.item.enchantment.Enchantment;

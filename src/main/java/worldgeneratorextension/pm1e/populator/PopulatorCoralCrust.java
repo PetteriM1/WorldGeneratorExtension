@@ -1,4 +1,4 @@
-package worldgeneratorextension.singletspop.populator;
+package worldgeneratorextension.pm1e.populator;
 
 import cn.nukkit.Server;
 import cn.nukkit.block.BlockID;
@@ -140,9 +140,8 @@ public class PopulatorCoralCrust extends Populator {
     }
 
     protected void placeFeature(ReadableStructureTemplate template, FullChunk chunk, int seed) {
-        NukkitRandom random = new NukkitRandom(seed);
-
         if (chunk.getBiomeId(7, 7) == EnumBiome.WARM_OCEAN.id) {
+            NukkitRandom random = new NukkitRandom(seed);
             BlockVector3 size = template.getSize();
             int x = random.nextBoundedInt(16 - size.getX());
             int z = random.nextBoundedInt(16 - size.getZ());

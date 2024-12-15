@@ -13,6 +13,7 @@ import cn.nukkit.nbt.tag.CompoundTag;
 import cn.nukkit.nbt.tag.ListTag;
 import worldgeneratorextension.global.block.state.*;
 import worldgeneratorextension.global.math.BoundingBox;
+import worldgeneratorextension.global.structure.StructurePiece;
 import worldgeneratorextension.shpop.loot.StrongholdCorridorChest;
 import worldgeneratorextension.shpop.loot.StrongholdCrossingChest;
 import worldgeneratorextension.shpop.loot.StrongholdLibraryChest;

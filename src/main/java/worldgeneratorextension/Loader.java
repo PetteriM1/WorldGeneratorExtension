@@ -20,15 +20,17 @@ import worldgeneratorextension.multitspop.populator.*;
 import worldgeneratorextension.nbpop.populator.PopulatorNetherFortress;
 import worldgeneratorextension.nbpop.structure.NetherBridgePieces;
 import worldgeneratorextension.ompop.populator.PopulatorOceanMonument;
+import worldgeneratorextension.pm1e.populator.PopulatorRuinedPortal;
+import worldgeneratorextension.pm1e.populator.PopulatorTreasureChest;
 import worldgeneratorextension.quasistructure.populator.PopulatorDesertWell;
 import worldgeneratorextension.quasistructure.populator.PopulatorDungeon;
 import worldgeneratorextension.scatteredbuilding.populator.PopulatorDesertPyramid;
 import worldgeneratorextension.scatteredbuilding.populator.PopulatorJungleTemple;
 import worldgeneratorextension.scatteredbuilding.populator.PopulatorSwampHut;
 import worldgeneratorextension.shpop.populator.PopulatorStronghold;
-import worldgeneratorextension.singletspop.populator.PopulatorCoralCrust;
+import worldgeneratorextension.pm1e.populator.PopulatorCoralCrust;
 import worldgeneratorextension.singletspop.populator.PopulatorFossil;
-import worldgeneratorextension.singletspop.populator.PopulatorNetherFossil;
+import worldgeneratorextension.pm1e.populator.PopulatorNetherFossil;
 import worldgeneratorextension.singletspop.populator.PopulatorShipwreck;
 import worldgeneratorextension.global.task.ChunkPopulateTask;
 import worldgeneratorextension.theend.noise.SimplexNoise;
@@ -72,8 +74,10 @@ public class Loader extends PluginBase implements Listener {
         PopulatorStronghold.init();
         PopulatorOceanMonument.init();
         PopulatorMineshaft.init();
+        PopulatorCoralCrust.init();
         NetherBridgePieces.init();
         PopulatorNetherFossil.init();
+
         populatorsOverworld.add(new PopulatorFossil());
         populatorsOverworld.add(new PopulatorShipwreck());
         populatorsOverworld.add(new PopulatorSwampHut());
@@ -90,6 +94,7 @@ public class Loader extends PluginBase implements Listener {
         populatorsOverworld.add(new PopulatorDesertWell());
         populatorsOverworld.add(new PopulatorDungeon());
         populatorsOverworld.add(new PopulatorCoralCrust());
+        populatorsOverworld.add(new PopulatorTreasureChest());
         populatorsNether.add(new PopulatorNetherFortress());
         populatorsNether.add(new PopulatorNetherFossil());
 

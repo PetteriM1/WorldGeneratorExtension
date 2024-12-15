@@ -1,4 +1,4 @@
-package worldgeneratorextension.multitspop.populator;
+package worldgeneratorextension.pm1e.populator;
 
 import cn.nukkit.Server;
 import cn.nukkit.block.Block;
@@ -12,7 +12,7 @@ import cn.nukkit.nbt.tag.CompoundTag;
 import cn.nukkit.nbt.tag.ListTag;
 import worldgeneratorextension.Loader;
 import worldgeneratorextension.global.task.LootSpawnTask;
-import worldgeneratorextension.multitspop.loot.PortalChest;
+import worldgeneratorextension.pm1e.loot.PortalChest;
 import worldgeneratorextension.multitspop.template.ReadOnlyLegacyStructureTemplate2;
 import worldgeneratorextension.multitspop.template.ReadableStructureTemplate;
 import worldgeneratorextension.multitspop.template.StructurePlaceSettings;

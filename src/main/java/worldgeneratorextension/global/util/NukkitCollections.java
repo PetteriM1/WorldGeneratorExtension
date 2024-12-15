@@ -1,4 +1,4 @@
-package worldgeneratorextension.ompop.util;
+package worldgeneratorextension.global.util;
 
 import cn.nukkit.math.NukkitRandom;
 
@@ -66,9 +66,5 @@ public class NukkitCollections {
         Object tmp = arr[i];
         arr[i] = arr[j];
         arr[j] = tmp;
-    }
-
-    private NukkitCollections() {
-
     }
 }

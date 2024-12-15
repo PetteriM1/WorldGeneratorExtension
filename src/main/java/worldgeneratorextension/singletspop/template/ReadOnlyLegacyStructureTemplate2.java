@@ -13,6 +13,8 @@ import cn.nukkit.nbt.tag.DoubleTag;
 import cn.nukkit.nbt.tag.IntTag;
 import cn.nukkit.nbt.tag.ListTag;
 import worldgeneratorextension.Loader;
+import worldgeneratorextension.global.template.AbstractLegacyStructureTemplate;
+import worldgeneratorextension.global.template.BlockEntry;
 
 import java.util.Comparator;
 import java.util.function.Consumer;

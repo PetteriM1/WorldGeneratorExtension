@@ -3,7 +3,7 @@ package worldgeneratorextension.quasistructure.loot;
 import cn.nukkit.inventory.InventoryType;
 import cn.nukkit.item.Item;
 import com.google.common.collect.Maps;
-import worldgeneratorextension.global.RandomizableContainer;
+import worldgeneratorextension.global.util.RandomizableContainer;
 
 // ./data/behavior_packs/vanilla/loot_tables/chests/simple_dungeon.json (1.16.20.3)
 public class DungeonChest extends RandomizableContainer {

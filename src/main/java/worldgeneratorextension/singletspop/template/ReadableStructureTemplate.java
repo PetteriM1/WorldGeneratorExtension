@@ -5,6 +5,7 @@ import cn.nukkit.level.format.FullChunk;
 import cn.nukkit.math.BlockVector3;
 import cn.nukkit.math.NukkitRandom;
 import cn.nukkit.nbt.tag.CompoundTag;
+import worldgeneratorextension.global.template.StructureTemplate;
 
 import java.util.function.Consumer;
 

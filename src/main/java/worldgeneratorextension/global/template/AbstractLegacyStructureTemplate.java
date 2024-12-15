@@ -1,4 +1,4 @@
-package worldgeneratorextension.multitspop.template;
+package worldgeneratorextension.global.template;
 
 import cn.nukkit.math.BlockVector3;
 import cn.nukkit.math.Vector3;
@@ -30,7 +30,7 @@ public abstract class AbstractLegacyStructureTemplate extends AbstractStructureT
 
         private final IdMapper<BlockEntry> ids;
 
-        protected SimplePalette() {
+        public SimplePalette() {
             this.ids = new IdMapper<>();
         }
 
@@ -60,11 +60,6 @@ public abstract class AbstractLegacyStructureTemplate extends AbstractStructureT
             this.state = state;
             this.nbt = nbt;
         }
-
-        @Override
-        public String toString() {
-            return String.format("StructureBlockInfo(pos=%s, state=%s, nbt=%s)", this.pos, this.state, this.nbt);
-        }
     }
 
     public static class StructureEntityInfo {
@@ -77,11 +72,6 @@ public abstract class AbstractLegacyStructureTemplate extends AbstractStructureT
             this.pos = pos;
             this.blockPos = blockPos;
             this.nbt = nbt;
-        }
-
-        @Override
-        public String toString() {
-            return String.format("StructureEntityInfo(pos=%s, blockPos=%s, nbt=%s)", this.pos, this.blockPos, this.nbt);
         }
     }
 }

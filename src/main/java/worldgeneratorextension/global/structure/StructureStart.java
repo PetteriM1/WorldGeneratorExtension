@@ -1,4 +1,4 @@
-package worldgeneratorextension.mspop.structure;
+package worldgeneratorextension.global.structure;
 
 import cn.nukkit.level.ChunkManager;
 import cn.nukkit.math.NukkitRandom;

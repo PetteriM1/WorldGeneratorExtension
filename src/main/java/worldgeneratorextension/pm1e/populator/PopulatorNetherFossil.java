@@ -1,4 +1,4 @@
-package worldgeneratorextension.singletspop.populator;
+package worldgeneratorextension.pm1e.populator;
 
 import cn.nukkit.block.BlockID;
 import cn.nukkit.level.ChunkManager;

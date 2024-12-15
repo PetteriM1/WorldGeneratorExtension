@@ -14,6 +14,7 @@ import cn.nukkit.nbt.tag.ListTag;
 import worldgeneratorextension.global.block.LiquidUpdater;
 import worldgeneratorextension.global.block.state.BlockState;
 import worldgeneratorextension.global.block.state.WeirdoDirection;
+import worldgeneratorextension.global.structure.StructurePiece;
 import worldgeneratorextension.nbpop.loot.NetherBridgeChest;
 import worldgeneratorextension.global.math.BoundingBox;
 import worldgeneratorextension.global.task.BlockActorSpawnTask;

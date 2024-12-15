@@ -19,6 +19,7 @@ import worldgeneratorextension.global.block.state.BlockState;
 import worldgeneratorextension.global.block.state.RailDirection;
 import worldgeneratorextension.global.block.state.TorchFacingDirection;
 import worldgeneratorextension.global.math.BoundingBox;
+import worldgeneratorextension.global.structure.StructurePiece;
 import worldgeneratorextension.mspop.loot.MineshaftChest;
 import worldgeneratorextension.mspop.populator.PopulatorMineshaft;
 import worldgeneratorextension.global.task.ActorSpawnTask;

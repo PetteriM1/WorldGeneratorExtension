@@ -19,6 +19,8 @@ import cn.nukkit.utils.Utils;
 import worldgeneratorextension.Loader;
 import worldgeneratorextension.global.task.ActorSpawnTask;
 import worldgeneratorextension.global.task.BlockActorSpawnTask;
+import worldgeneratorextension.global.template.AbstractLegacyStructureTemplate;
+import worldgeneratorextension.global.template.BlockEntry;
 
 import java.util.Comparator;
 import java.util.HashMap;

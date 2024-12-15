@@ -1,4 +1,4 @@
-package worldgeneratorextension.multitspop.template;
+package worldgeneratorextension.global.template;
 
 import cn.nukkit.math.BlockVector3;
 

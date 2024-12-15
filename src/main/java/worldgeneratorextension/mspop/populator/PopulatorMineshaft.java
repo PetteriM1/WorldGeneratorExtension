@@ -10,8 +10,8 @@ import cn.nukkit.math.NukkitRandom;
 import worldgeneratorextension.global.math.BoundingBox;
 import worldgeneratorextension.global.task.CallbackableChunkGenerationTask;
 import worldgeneratorextension.mspop.structure.MineshaftPieces;
-import worldgeneratorextension.mspop.structure.StructurePiece;
-import worldgeneratorextension.mspop.structure.StructureStart;
+import worldgeneratorextension.global.structure.StructurePiece;
+import worldgeneratorextension.global.structure.StructureStart;
 
 public class PopulatorMineshaft extends Populator {
 

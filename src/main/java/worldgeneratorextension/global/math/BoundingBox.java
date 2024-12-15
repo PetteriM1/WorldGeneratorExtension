@@ -3,7 +3,6 @@ package worldgeneratorextension.global.math;
 import cn.nukkit.math.BlockFace;
 import cn.nukkit.math.BlockVector3;
 import cn.nukkit.nbt.tag.IntArrayTag;
-import com.google.common.base.MoreObjects;
 
 public class BoundingBox {
 
@@ -135,17 +134,5 @@ public class BoundingBox {
 
     public IntArrayTag createTag() {
         return new IntArrayTag("", new int[]{this.x0, this.y0, this.z0, this.x1, this.y1, this.z1});
-    }
-
-    @Override
-    public String toString() {
-        return MoreObjects.toStringHelper(this)
-                .add("x0", this.x0)
-                .add("y0", this.y0)
-                .add("z0", this.z0)
-                .add("x1", this.x1)
-                .add("y1", this.y1)
-                .add("z1", this.z1)
-                .toString();
     }
 }

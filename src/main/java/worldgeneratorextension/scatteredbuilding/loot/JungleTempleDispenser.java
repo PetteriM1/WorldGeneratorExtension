@@ -1,7 +1,7 @@
 package worldgeneratorextension.scatteredbuilding.loot;
 
 import cn.nukkit.item.Item;
-import worldgeneratorextension.global.RandomizableContainer;
+import worldgeneratorextension.global.util.RandomizableContainer;
 import com.google.common.collect.Maps;
 
 public class JungleTempleDispenser extends RandomizableContainer {

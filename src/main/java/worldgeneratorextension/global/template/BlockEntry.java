@@ -1,4 +1,4 @@
-package worldgeneratorextension.multitspop.template;
+package worldgeneratorextension.global.template;
 
 public class BlockEntry {
 
@@ -37,10 +37,5 @@ public class BlockEntry {
     @Override
     public int hashCode() {
         return this.id << 6 | this.meta;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("BlockEntry(id=%s, meta=%s)", this.id, this.meta);
     }
 }

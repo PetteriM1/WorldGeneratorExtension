@@ -1,4 +1,4 @@
-package worldgeneratorextension.nbpop.structure;
+package worldgeneratorextension.global.structure;
 
 import cn.nukkit.block.Block;
 import cn.nukkit.level.ChunkManager;
@@ -9,7 +9,8 @@ import cn.nukkit.math.NukkitRandom;
 import cn.nukkit.nbt.tag.CompoundTag;
 import worldgeneratorextension.global.block.BlockTypes;
 import worldgeneratorextension.global.block.state.BlockState;
-import worldgeneratorextension.global.block.state.WeirdoDirection;
+import worldgeneratorextension.global.block.state.FacingDirection;
+import worldgeneratorextension.global.block.state.TorchFacingDirection;
 import worldgeneratorextension.global.math.BoundingBox;
 import worldgeneratorextension.global.math.Rotation;
 
@@ -21,8 +22,8 @@ public abstract class StructurePiece {
     protected ChunkManager level;
     protected BoundingBox boundingBox;
 
-    private BlockFace orientation;
-    private Rotation rotation = Rotation.NONE;
+    protected BlockFace orientation;
+    protected Rotation rotation = Rotation.NONE;
     protected int genDepth;
 
     protected StructurePiece(int genDepth) {
@@ -159,33 +160,62 @@ public abstract class StructurePiece {
         BlockVector3 vec = new BlockVector3(this.getWorldX(x, z), this.getWorldY(y), this.getWorldZ(x, z));
         if (boundingBox.isInside(vec)) {
             if (this.rotation != Rotation.NONE) {
-                if (block.getId() == Block.NETHER_BRICKS_STAIRS) {
-                    if (this.rotation == Rotation.CLOCKWISE_90) {
+                switch (block.getId()) {
+                    case Block.TORCH:
+                        if (this.rotation == Rotation.CLOCKWISE_90) {
+                            block = block.rotate(this.rotation);
+                        } else if (this.rotation == Rotation.CLOCKWISE_180) {
+                            switch (block.getMeta()) {
+                                case TorchFacingDirection.EAST:
+                                case TorchFacingDirection.WEST:
+                                    break;
+                                case TorchFacingDirection.SOUTH:
+                                case TorchFacingDirection.NORTH:
+                                    block = block.rotate(this.rotation);
+                                    break;
+                            }
+                        } else if (this.rotation == Rotation.COUNTERCLOCKWISE_90) {
+                            switch (block.getMeta()) {
+                                case TorchFacingDirection.EAST:
+                                case TorchFacingDirection.WEST:
+                                    block = block.rotate(Rotation.CLOCKWISE_90);
+                                    break;
+                                case TorchFacingDirection.SOUTH:
+                                case TorchFacingDirection.NORTH:
+                                    block = block.rotate(this.rotation);
+                                    break;
+                            }
+                        }
+                        break;
+                    case Block.LADDER:
+                        if (this.rotation == Rotation.CLOCKWISE_90) {
+                            block = block.rotate(this.rotation);
+                        } else if (this.rotation == Rotation.CLOCKWISE_180) {
+                            switch (block.getMeta()) {
+                                case FacingDirection.EAST:
+                                case FacingDirection.WEST:
+                                    break;
+                                case FacingDirection.SOUTH:
+                                case FacingDirection.NORTH:
+                                    block = block.rotate(this.rotation);
+                                    break;
+                            }
+                        } else if (this.rotation == Rotation.COUNTERCLOCKWISE_90) {
+                            switch (block.getMeta()) {
+                                case FacingDirection.EAST:
+                                case FacingDirection.WEST:
+                                    block = block.rotate(Rotation.CLOCKWISE_90);
+                                    break;
+                                case FacingDirection.SOUTH:
+                                case FacingDirection.NORTH:
+                                    block = block.rotate(this.rotation);
+                                    break;
+                            }
+                        }
+                        break;
+                    default:
                         block = block.rotate(this.rotation);
-                    } else if (this.rotation == Rotation.CLOCKWISE_180) {
-                        switch (block.getMeta()) {
-                            case WeirdoDirection.EAST:
-                            case WeirdoDirection.WEST:
-                                break;
-                            case WeirdoDirection.SOUTH:
-                            case WeirdoDirection.NORTH:
-                                block = block.rotate(this.rotation);
-                                break;
-                        }
-                    } else if (this.rotation == Rotation.COUNTERCLOCKWISE_90) {
-                        switch (block.getMeta()) {
-                            case WeirdoDirection.EAST:
-                            case WeirdoDirection.WEST:
-                                block = block.rotate(Rotation.CLOCKWISE_90);
-                                break;
-                            case WeirdoDirection.SOUTH:
-                            case WeirdoDirection.NORTH:
-                                block = block.rotate(this.rotation);
-                                break;
-                        }
-                    }
-                } else {
-                    block = block.rotate(this.rotation);
+                        break;
                 }
             }
 

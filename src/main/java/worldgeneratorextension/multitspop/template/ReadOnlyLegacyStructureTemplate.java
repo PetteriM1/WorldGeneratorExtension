@@ -15,6 +15,8 @@ import cn.nukkit.nbt.tag.IntTag;
 import cn.nukkit.nbt.tag.ListTag;
 import worldgeneratorextension.global.task.ActorSpawnTask;
 import worldgeneratorextension.global.task.BlockActorSpawnTask;
+import worldgeneratorextension.global.template.AbstractLegacyStructureTemplate;
+import worldgeneratorextension.global.template.BlockEntry;
 
 import java.util.Comparator;
 import java.util.function.Consumer;

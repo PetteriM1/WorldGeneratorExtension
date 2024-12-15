@@ -8,10 +8,10 @@ import cn.nukkit.level.format.generic.BaseFullChunk;
 import cn.nukkit.level.generator.populator.type.Populator;
 import cn.nukkit.math.NukkitRandom;
 import worldgeneratorextension.global.math.BoundingBox;
+import worldgeneratorextension.global.structure.StructurePiece;
+import worldgeneratorextension.global.structure.StructureStart;
 import worldgeneratorextension.global.task.CallbackableChunkGenerationTask;
 import worldgeneratorextension.nbpop.structure.NetherBridgePieces;
-import worldgeneratorextension.nbpop.structure.StructurePiece;
-import worldgeneratorextension.nbpop.structure.StructureStart;
 
 import java.util.List;
 
