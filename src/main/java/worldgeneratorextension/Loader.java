@@ -7,6 +7,7 @@ import cn.nukkit.event.level.ChunkPopulateEvent;
 import cn.nukkit.item.RuntimeItemMapping;
 import cn.nukkit.item.RuntimeItems;
 import cn.nukkit.level.Level;
+import cn.nukkit.level.generator.Generator;
 import cn.nukkit.level.generator.Normal;
 import cn.nukkit.level.generator.Void;
 import cn.nukkit.level.generator.populator.type.Populator;
@@ -36,6 +37,7 @@ import worldgeneratorextension.global.task.ChunkPopulateTask;
 import worldgeneratorextension.theend.noise.SimplexNoise;
 import worldgeneratorextension.theend.object.theend.ObsidianPillar;
 import worldgeneratorextension.theend.populator.theend.*;
+import worldgeneratorextension.vanillagenerator.NormalGenerator;
 import worldgeneratorextension.vipop.populator.PopulatorVillage;
 import worldgeneratorextension.vipop.structure.VillagePieces;
 
@@ -58,10 +60,21 @@ public class Loader extends PluginBase implements Listener {
 
     @Override
     public void onEnable() {
+        Plugin betterVanillaGenerator = getServer().getPluginManager().getPlugin("BetterVanillaGenerator");
+        if (betterVanillaGenerator != null && "cn.wode490390.nukkit.vanillagenerator.BetterGenerator".equals(betterVanillaGenerator.getDescription().getMain())) {
+            getLogger().warning("Already loaded plugin cn.wode490390.nukkit.vanillagenerator.BetterGenerator found. Using WorldGeneratorExtension instead is recommended.");
+        }
+
         Plugin theEnd = getServer().getPluginManager().getPlugin("TheEnd");
         if (theEnd != null && "cn.wode490390.nukkit.theend.TheEnd".equals(theEnd.getDescription().getMain())) {
-            getLogger().info("Disabling already loaded cn.wode490390.nukkit.theend.TheEnd");
-            getServer().getPluginManager().disablePlugin(theEnd);
+            getLogger().warning("Already loaded plugin cn.wode490390.nukkit.theend.TheEnd found. Using WorldGeneratorExtension instead is recommended.");
+        }
+
+        boolean vanillaOverworld = getServer().getPropertyBoolean("wgenext.vanilla-overworld");
+        if (vanillaOverworld) {
+            getLogger().info("Using better vanilla overworld generator");
+            Generator.addGenerator(NormalGenerator.class, "default", NormalGenerator.TYPE_INFINITE);
+            Generator.addGenerator(NormalGenerator.class, "normal", NormalGenerator.TYPE_INFINITE);
         }
 
         PopulatorFossil.init();
@@ -87,7 +100,7 @@ public class Loader extends PluginBase implements Listener {
         populatorsOverworld.add(new PopulatorPillagerOutpost());
         populatorsOverworld.add(new PopulatorOceanRuin());
         populatorsOverworld.add(new PopulatorRuinedPortal());
-        populatorsOverworld.add(new PopulatorVillage(Normal.seaHeight > 62));
+        populatorsOverworld.add(new PopulatorVillage(!vanillaOverworld && Normal.seaHeight > 62));
         populatorsOverworld.add(new PopulatorStronghold());
         populatorsOverworld.add(new PopulatorOceanMonument());
         populatorsOverworld.add(new PopulatorMineshaft());

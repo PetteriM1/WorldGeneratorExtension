@@ -1,6 +1,7 @@
 package worldgeneratorextension.pm1e.populator;
 
 import cn.nukkit.Server;
+import cn.nukkit.block.Block;
 import cn.nukkit.block.BlockID;
 import cn.nukkit.block.BlockLayer;
 import cn.nukkit.level.ChunkManager;
@@ -98,7 +99,7 @@ public class PopulatorCoralCrust extends Populator {
             int z = random.nextBoundedInt(16);
             int y = getHighestWorkableBlock(chunk, x, z);
 
-            if (y >= 40 && y < Normal.seaHeight) {
+            if (y >= 40 && y < Normal.seaHeight && Block.isWater(chunk.getBlockId(x, y, z))) {
                 chunk.setBlock(x, y, z, id, random.nextBoundedInt(type));
                 chunk.setBlockAtLayer(x, y, z, BlockLayer.WATERLOGGED, BlockID.WATER);
             }
