@@ -1,4 +1,4 @@
-package cn.wode490390.nukkit.vanillagenerator.populator.overworld;
+package worldgeneratorextension.vanillagenerator.populator.overworld;
 
 import cn.nukkit.block.Block;
 import cn.nukkit.level.ChunkManager;

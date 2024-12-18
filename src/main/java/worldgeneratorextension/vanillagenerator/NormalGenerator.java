@@ -26,6 +26,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
+import worldgeneratorextension.vanillagenerator.populator.overworld.PopulatorSnowLayers;
 
 import java.util.Collections;
 import java.util.List;
@@ -189,7 +190,7 @@ public class NormalGenerator extends Generator {
                         new OreType(Block.get(STONE, BlockStone.DIORITE), 10, 33, 0, 80),
                         new OreType(Block.get(STONE, BlockStone.ANDESITE), 10, 33, 0, 80)
                 }),
-                new cn.wode490390.nukkit.vanillagenerator.populator.overworld.PopulatorSnowLayers(),
+                new PopulatorSnowLayers(),
                 new WaterIcePopulator(),
                 new PopulatorSpring(BlockID.WATER, BlockID.STONE, 15, 8, 255),
                 new PopulatorSpring(BlockID.LAVA, BlockID.STONE, 10, 16, 255)
