@@ -15,7 +15,6 @@ import cn.nukkit.nbt.tag.CompoundTag;
 import cn.nukkit.nbt.tag.DoubleTag;
 import cn.nukkit.nbt.tag.IntTag;
 import cn.nukkit.nbt.tag.ListTag;
-import cn.nukkit.utils.Utils;
 import worldgeneratorextension.Loader;
 import worldgeneratorextension.global.task.ActorSpawnTask;
 import worldgeneratorextension.global.task.BlockActorSpawnTask;
@@ -122,7 +121,7 @@ public class ReadOnlyLegacyStructureTemplate2 extends AbstractLegacyStructureTem
                 continue;
             }
 
-            if (id == BlockID.OBSIDIAN && Utils.random.nextInt(100) < 20) {
+            if (id == BlockID.OBSIDIAN && random.nextBoundedInt(100) < 20) {
                 id = BlockID.CRYING_OBSIDIAN;
             }
 
