@@ -53,7 +53,7 @@ public class PopulatorPillagerOutpost extends Populator {
             random.setSeed(((chunkX >> 4) ^ (chunkZ >> 4) << 4) ^ level.getSeed());
             random.nextInt();
 
-            if (Utils.rand(1, 4) == 3/*random.nextBoundedInt(5) == (0x77f73e3a & 3)*/) {
+            if (random.nextBoundedInt(5) == (0x77f73e3a & 3)) {
                 ReadableStructureTemplate template = WATCHTOWER;
                 int y = chunk.getHighestBlockAt(0, 0);
 
