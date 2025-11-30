@@ -41,5 +41,9 @@ public class DesertPyramidChest extends RandomizableContainer {
                 .register(new ItemEntry(Item.STRING, 0, 8, 1, 10))
                 .register(new ItemEntry(Item.SAND, 0, 8, 1, 10));
         this.pools.put(pool2.build(), new RollEntry(4, pool2.getTotalWeight()));
+
+        PoolBuilder pool3 = new PoolBuilder()
+                .register(new ItemEntry(Item.DUNE_ARMOR_TRIM_SMITHING_TEMPLATE, 0, 2, 2, 7));
+        this.pools.put(pool3.build(), new RollEntry(1, 1, pool3.getTotalWeight()));
     }
 }

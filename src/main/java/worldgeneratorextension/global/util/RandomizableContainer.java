@@ -12,7 +12,6 @@ import com.google.common.collect.Lists;
 
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomizableContainer {
 
@@ -38,9 +37,7 @@ public class RandomizableContainer {
                         Item item = Item.get(entry.getId(), entry.getMeta(), random.nextRange(entry.getMinCount(), entry.getMaxCount()));
                         if (item.getId() == Item.ENCHANT_BOOK) {
                             Enchantment enchantment = Enchantment.getEnchantment(Utils.rand(0, 35));
-                            if (ThreadLocalRandom.current().nextDouble() < 0.3) {
-                                enchantment.setLevel(Utils.rand(1, enchantment.getMaxLevel()));
-                            }
+                            enchantment.setLevel(Utils.rand(1, enchantment.getMaxLevel()));
                             item.addEnchantment(enchantment);
                         }
                         tags[index] = NBTIO.putItemHelper(item, index);

@@ -23,12 +23,16 @@ public class JungleTempleChest extends RandomizableContainer {
                 .register(new ItemEntry(Item.EMERALD, 0, 3, 1, 10))
                 .register(new ItemEntry(Item.BONE, 0, 6, 4, 100))
                 .register(new ItemEntry(Item.ROTTEN_FLESH, 0, 7, 3, 80))
-                //.register(new ItemEntry(Item.BAMBOO, 0, 3, 1, 75))
+                .register(new ItemEntry(255 - Item.BAMBOO, 0, 3, 1, 75))
                 .register(new ItemEntry(Item.SADDLE, 15))
                 .register(new ItemEntry(Item.IRON_HORSE_ARMOR, 5))
                 .register(new ItemEntry(Item.GOLD_HORSE_ARMOR, 5))
                 .register(new ItemEntry(Item.DIAMOND_HORSE_ARMOR, 5))
                 .register(new ItemEntry(Item.ENCHANTED_BOOK, 6)); //TODO: ench nbt
         this.pools.put(pool1.build(), new RollEntry(6, 2, pool1.getTotalWeight()));
+
+        PoolBuilder pool2 = new PoolBuilder()
+                .register(new ItemEntry(Item.WILD_ARMOR_TRIM_SMITHING_TEMPLATE, 0, 2, 2, 3));
+        this.pools.put(pool2.build(), new RollEntry(1, 1, pool2.getTotalWeight()));
     }
 }

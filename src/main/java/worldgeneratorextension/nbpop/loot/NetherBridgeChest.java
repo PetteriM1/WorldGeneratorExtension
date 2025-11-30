@@ -31,5 +31,9 @@ public class NetherBridgeChest extends RandomizableContainer {
                 .register(new ItemEntry(Item.DIAMOND_HORSE_ARMOR, 3))
                 .register(new ItemEntry(Item.OBSIDIAN, 0, 4, 2, 2));
         this.pools.put(pool1.build(), new RollEntry(4, 2, pool1.getTotalWeight()));
+
+        PoolBuilder pool2 = new PoolBuilder()
+                .register(new ItemEntry(Item.RIB_ARMOR_TRIM_SMITHING_TEMPLATE, 0, 1, 1, 15));
+        this.pools.put(pool2.build(), new RollEntry(1, 1, pool2.getTotalWeight()));
     }
 }

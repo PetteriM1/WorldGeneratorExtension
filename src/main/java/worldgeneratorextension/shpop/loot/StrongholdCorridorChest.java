@@ -37,7 +37,12 @@ public class StrongholdCorridorChest extends RandomizableContainer {
                 .register(new ItemEntry(Item.IRON_HORSE_ARMOR, 5))
                 .register(new ItemEntry(Item.GOLD_HORSE_ARMOR, 5))
                 .register(new ItemEntry(Item.DIAMOND_HORSE_ARMOR, 5))
+                .register(new ItemEntry(Item.RECORD_OTHERSIDE, 5))
                 .register(new ItemEntry(Item.ENCHANTED_BOOK, 6)); //TODO: treasure enchant_with_levels 30
         this.pools.put(pool1.build(), new RollEntry(3, 2, pool1.getTotalWeight()));
+
+        PoolBuilder pool2 = new PoolBuilder()
+                .register(new ItemEntry(Item.EYE_ARMOR_TRIM_SMITHING_TEMPLATE, 0, 1, 1, 10));
+        this.pools.put(pool2.build(), new RollEntry(1, 1, pool2.getTotalWeight()));
     }
 }

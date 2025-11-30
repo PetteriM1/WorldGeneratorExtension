@@ -24,7 +24,8 @@ public class ShipwreckSupplyChest extends RandomizableContainer {
                 .register(new ItemEntry(Item.WHEAT, 0, 21, 8, 7))
                 .register(new ItemEntry(Item.COAL, 0, 8, 2, 6))
                 .register(new ItemEntry(Item.ROTTEN_FLESH, 0, 24, 5, 5))
-                //.register(new ItemEntry(Item.BAMBOO, 0, 3, 2))
+                .register(new ItemEntry(255 - Item.BAMBOO, 0, 3, 2))
+                .register(new ItemEntry(255 - Item.MOSS_BLOCK, 0, 4, 7))
                 .register(new ItemEntry(Item.PUMPKIN, 0, 3, 2))
                 .register(new ItemEntry(Item.GUNPOWDER, 0, 5, 3))
                 .register(new ItemEntry(Item.TNT, 0, 2, 1))
@@ -32,8 +33,12 @@ public class ShipwreckSupplyChest extends RandomizableContainer {
                 .register(new ItemEntry(Item.LEATHER_TUNIC, 3)) //TODO: enchant_randomly
                 .register(new ItemEntry(Item.LEATHER_PANTS, 3)) //TODO: enchant_randomly
                 .register(new ItemEntry(Item.LEATHER_BOOTS, 3)) //TODO: enchant_randomly
-                //.register(new ItemEntry(Item.SUSPICIOUS_STEW, 10))
+                .register(new ItemEntry(Item.SUSPICIOUS_STEW, 10))
                 ;
         this.pools.put(pool1.build(), new RollEntry(10, 3, pool1.getTotalWeight()));
+
+        PoolBuilder pool2 = new PoolBuilder()
+                .register(new ItemEntry(Item.COAST_ARMOR_TRIM_SMITHING_TEMPLATE, 0, 2, 2, 6));
+        this.pools.put(pool2.build(), new RollEntry(1, 1, pool2.getTotalWeight()));
     }
 }

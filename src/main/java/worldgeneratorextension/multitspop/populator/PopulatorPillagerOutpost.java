@@ -14,7 +14,6 @@ import cn.nukkit.math.NukkitRandom;
 import cn.nukkit.math.Vector3;
 import cn.nukkit.nbt.tag.CompoundTag;
 import cn.nukkit.nbt.tag.ListTag;
-import cn.nukkit.utils.Utils;
 import worldgeneratorextension.Loader;
 import worldgeneratorextension.global.block.BlockTypes;
 import worldgeneratorextension.global.task.CallbackableChunkGenerationTask;

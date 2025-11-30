@@ -29,5 +29,9 @@ public class ShipwreckTreasureChest extends RandomizableContainer {
                 .register(new ItemEntry(Item.GOLD_INGOT, 0, 10, 10))
                 .register(new ItemEntry(Item.DYE, 4, 10, 20));
         this.pools.put(pool2.build(), new RollEntry(5, 2, pool2.getTotalWeight()));
+
+        PoolBuilder pool3 = new PoolBuilder()
+                .register(new ItemEntry(Item.COAST_ARMOR_TRIM_SMITHING_TEMPLATE, 0, 2, 2, 6));
+        this.pools.put(pool3.build(), new RollEntry(1, 1, pool3.getTotalWeight()));
     }
 }

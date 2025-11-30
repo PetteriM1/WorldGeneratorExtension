@@ -93,8 +93,8 @@ public class PopulatorDungeon extends Populator {
 
                 for (int xx = 0; xx < 2; ++xx) {
                     for (int zz = 0; zz < 3; ++zz) {
-                        int tx = x + random.nextBoundedInt(xv * 2 + 1) - xv;
-                        int tz = z + random.nextBoundedInt(zv * 2 + 1) - zv;
+                        int tx = x + random.nextBoundedInt((xv << 1) + 1) - xv;
+                        int tz = z + random.nextBoundedInt((zv << 1) + 1) - zv;
 
                         if (level.getBlockIdAt(tx, y, tz) == AIR) {
                             int n = 0;

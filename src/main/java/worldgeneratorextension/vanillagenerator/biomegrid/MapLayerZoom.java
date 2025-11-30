@@ -34,7 +34,7 @@ public class MapLayerZoom extends MapLayer {
         int zoomSizeZ = gridSizeZ - 1 << 1;
         int[] tmpValues = new int[zoomSizeX * zoomSizeZ];
         for (int i = 0; i < gridSizeZ - 1; i++) {
-            int n = i * 2 * zoomSizeX;
+            int n = (i << 1) * zoomSizeX;
             int upperLeftVal = values[i * gridSizeX];
             int lowerLeftVal = values[(i + 1) * gridSizeX];
             for (int j = 0; j < gridSizeX - 1; j++) {

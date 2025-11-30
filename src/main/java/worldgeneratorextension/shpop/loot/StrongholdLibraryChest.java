@@ -24,5 +24,9 @@ public class StrongholdLibraryChest extends RandomizableContainer {
                 .register(new ItemEntry(Item.COMPASS, 5))
                 .register(new ItemEntry(Item.ENCHANTED_BOOK, 60)); //TODO: treasure enchant_with_levels 30
         this.pools.put(pool1.build(), new RollEntry(10, 2, pool1.getTotalWeight()));
+
+        PoolBuilder pool2 = new PoolBuilder()
+                .register(new ItemEntry(Item.EYE_ARMOR_TRIM_SMITHING_TEMPLATE, 0, 1, 1, 1));
+        this.pools.put(pool2.build(), new RollEntry(1, 1, pool2.getTotalWeight()));
     }
 }

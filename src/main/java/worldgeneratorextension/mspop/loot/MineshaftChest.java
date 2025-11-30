@@ -34,6 +34,7 @@ public class MineshaftChest extends RandomizableContainer {
                 .register(new ItemEntry(Item.DIAMOND, 0, 2, 3))
                 .register(new ItemEntry(Item.COAL, 0, 8, 3, 10))
                 .register(new ItemEntry(Item.BREAD, 0, 3, 15))
+                .register(new ItemEntry(Item.GLOW_BERRIES, 0, 6, 3, 15))
                 .register(new ItemEntry(Item.MELON_SEEDS, 0, 4, 2, 10))
                 .register(new ItemEntry(Item.PUMPKIN_SEEDS, 0, 4, 2, 10))
                 .register(new ItemEntry(Item.BEETROOT_SEEDS, 0, 4, 2, 10));
